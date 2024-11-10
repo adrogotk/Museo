@@ -1,4 +1,4 @@
-package es.etg.psp.museo.impresion;
+package es.etg.psp.museo.controller;
 
 
-public enum TipoImpresion { ENTRADA, SALIDA}
+public enum TipoSensor { ENTRADA, SALIDA}

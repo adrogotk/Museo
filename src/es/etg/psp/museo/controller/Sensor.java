@@ -1,4 +1,6 @@
 package es.etg.psp.museo.controller;
+import es.etg.psp.museo.data.*;
+import java.lang.*;
 
 public class Sensor extends Thread {
 	private TipoSensor tipoSensor;
@@ -9,17 +11,25 @@ public class Sensor extends Thread {
 	}
 	public void run(){
 		if (this.tipoSensor==TipoSensor.ENTRADA){
-			for(int i=1; i<=MUSEO.N_ENTRADAS; i++){
-            Entrada e=new Entrada(this.museo);
+			for(int i=1; i<=Museo.N_ENTRADAS; i++){
+            Thread e=new Thread(new Entrada(this.museo));
 			e.start();
+			try {
 			e.join();
+			} catch (InterruptedException ex) {
+			ex.printStackTrace();
+			}
         }
 		}
 		else {
-			for(int i=1; i<=MUSEO.N_SALIDAS; i++){
-			Salida s=new Salida(this.museo);
+			for(int i=1; i<=Museo.N_SALIDAS; i++){
+			Thread s=new Thread(new Salida(this.museo));
 			s.start();
+			try {
 			s.join();
+			} catch (InterruptedException ex) {
+			ex.printStackTrace();
+			}
 		}
 		}
 	}

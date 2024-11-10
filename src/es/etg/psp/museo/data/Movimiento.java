@@ -1,8 +1,8 @@
 package es.etg.psp.museo.data;
-
+import es.etg.psp.museo.impresion.*;
 
 public abstract class Movimiento {
-   public String imprimir(string data){
+   public void imprimir(String data){
       Impresora impresora = ImpresoraFactory.imprimir(TipoImpresion.PANTALLA);
       impresora.imprimir(data);
    }
