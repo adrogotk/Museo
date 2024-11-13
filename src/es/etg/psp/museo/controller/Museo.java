@@ -23,10 +23,13 @@ public class Museo {
         return data;
             
 	}
-	public int getNPersonas (){
-		return this.n_personas;
+	public synchronized int getNPersonas () throws InterruptedException{
+		int n_personas=this.n_personas;
+        wait();
+		return n_personas;
 	}
-	public void setNPersonas(int n_personas){
+	public synchronized void setNPersonas(int n_personas){
 		this.n_personas=n_personas;
+		notify();
 	}
 }

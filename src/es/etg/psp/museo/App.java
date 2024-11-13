@@ -4,7 +4,7 @@ import es.etg.psp.museo.impresion.*;
 
 public class App {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException{
 			Museo m=new Museo();
 			String data=m.calcularAforo();
 			Impresora impresora = ImpresoraFactory.imprimir(TipoImpresion.PANTALLA);
