@@ -13,13 +13,12 @@ public class Salida  extends Movimiento implements Runnable{
 
     public void run(){
         int n_personas=0;
-        try {
+        int n_ejecuciones;
             n_personas=this.museo.getNPersonas();
             n_personas--;
             this.museo.setNPersonas(n_personas);
-        } catch (InterruptedException e) {
-            System.out.println(e.getMessage());
-        }
-      super.imprimir(String.format(TEXTO_SALIDA, n_personas));
+            n_ejecuciones=this.museo.getNEjecuciones();
+                super.imprimir(String.format(TEXTO_SALIDA, n_personas), n_ejecuciones);
+                this.museo.setNEjecuciones(n_ejecuciones+1);
     }
 }

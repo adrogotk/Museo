@@ -1,6 +1,5 @@
 package es.etg.psp.museo.data;
 import es.etg.psp.museo.controller.*;
-import java.lang.*;
 
 public class Entrada extends Movimiento implements Runnable{
 
@@ -13,13 +12,13 @@ public class Entrada extends Movimiento implements Runnable{
 
     public void run(){
         int n_personas=0;
-        try {
+        int n_ejecuciones;
             n_personas=this.museo.getNPersonas();
             n_personas++;
             this.museo.setNPersonas(n_personas);
-        } catch (InterruptedException e) {
-            System.out.println(e.getMessage());
-        }
-      super.imprimir(String.format(TEXTO_ENTRADA, n_personas));
+            n_ejecuciones=this.museo.getNEjecuciones();
+        super.imprimir(String.format(TEXTO_ENTRADA, n_personas), n_ejecuciones);
+        this.museo.setNEjecuciones(n_ejecuciones+1);
+
     }
 }

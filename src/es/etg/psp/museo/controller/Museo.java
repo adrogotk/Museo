@@ -7,8 +7,10 @@ public class Museo {
 	public static final int AFORO_INICIAL=100;
 	 public static final String TEXTO_FINAL="Aforo final: %s visitantes";
 	private int n_personas;
+	private int n_ejecuciones;
 	public Museo(){
 		this.n_personas=AFORO_INICIAL;
+		this.n_ejecuciones=0;
 	}
 		
 	
@@ -23,13 +25,18 @@ public class Museo {
         return data;
             
 	}
-	public synchronized int getNPersonas () throws InterruptedException{
+	public synchronized int getNPersonas () {
 		int n_personas=this.n_personas;
-        wait();
 		return n_personas;
 	}
-	public synchronized void setNPersonas(int n_personas){
+	public synchronized void setNPersonas(int n_personas) {
 		this.n_personas=n_personas;
-		notify();
+	}
+	public synchronized int getNEjecuciones () {
+		int n_ejecuciones=this.n_ejecuciones;
+		return n_ejecuciones;
+	}
+	public synchronized void setNEjecuciones(int n_ejecuciones) {
+		this.n_ejecuciones=n_ejecuciones;
 	}
 }
