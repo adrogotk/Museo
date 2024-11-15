@@ -59,15 +59,8 @@ public class Museo {
 	public synchronized void setNPersonas(int n_personas){
 	this.n_personas=n_personas;
 	}
-	public synchronized int getNEjecuciones () {
-		return this.n_ejecuciones;
-	}
-	public synchronized void setNEjecuciones() {
-		this.n_ejecuciones++;
-	}
 	public synchronized void imprimir(String data) throws InterruptedException{
         Impresora impresora = ImpresoraFactory.imprimir(TipoImpresion.PANTALLA);
         impresora.imprimir(data);
-                //this.n_ejecuciones--;
 	 }
 }
