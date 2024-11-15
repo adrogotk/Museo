@@ -17,7 +17,7 @@ public class Sensor extends Thread {
 			try {
 			e.join();
 			} catch (InterruptedException ex) {
-			ex.printStackTrace();
+			System.out.println(ex);
 			}
         }
 		}
@@ -28,7 +28,7 @@ public class Sensor extends Thread {
 			try {
 			s.join();
 			} catch (InterruptedException ex) {
-			ex.printStackTrace();
+				System.out.println(ex);
 			}
 		}
 		}
